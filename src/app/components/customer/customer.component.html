@@ -1,1 +1,22 @@
-<p>customer works!</p>
+<div *ngIf="dataLoaded==false" class="spinner-border text-info" role="status">
+    <span class="visually-hidden">Loading...</span>
+</div>
+
+<li *ngIf="dataLoaded==true" class="list-group-item active" aria-current="true" style="margin-top: 10%">CUSTOMERS</li>
+
+<table *ngIf="dataLoaded==true" class="table align-middle">
+    <thead>
+        <tr>
+            <th><strong>Id</strong></th>
+            <th><strong>User Id</strong></th>
+            <th><strong>Name</strong></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let customer of customers">
+            <td>{{customer.customerId}}</td>
+            <td>{{customer.userId}}</td>
+            <td>{{customer.companyName}}</td>
+        </tr>
+    </tbody>
+</table>
