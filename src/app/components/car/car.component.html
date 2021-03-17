@@ -1,4 +1,6 @@
-<div *ngIf="dataLoaded==false" class="spinner-border text-info" role="status">
+
+
+ <div *ngIf="dataLoaded==false" class="spinner-border text-info" role="status">
     <span class="visually-hidden">Loading...</span>
 </div>
 
@@ -6,19 +8,25 @@
     <thead>
         <tr>
             <th>Id</th>
-            <th>Car Name</th>
-            <th>Brand Name</th>
-            <th>Color Name</th>
-            <th>Daily Price</th>
+            <th>Marka</th>
+            <th>Araç</th>
+            <th>Renk</th>
+            <th>Açıklama</th>
+            <th>Foto</th>
+            <th>Detaylar</th>
         </tr>
     </thead>
     <tbody>
         <tr *ngFor="let car of cars">
+           
             <td>{{car.carId}}</td>
-            <td>{{car.carName}}</td>
             <td>{{car.brandName}}</td>
+            <td>{{car.carName}}</td>
             <td>{{car.colorName}}</td>
             <td>{{car.dailyPrice}}</td>
+            <td><img *ngIf="car.imagePath!=null" src="{{apiUrl+car.imagePath}}" alt="{{car.carId}}" style="width: 100%;"></td>
+            <td><button routerLink="/car/details/{{car.carId}}" type="button" class="btn btn-primary">Detay</button></td> 
         </tr>
     </tbody>
-</table>
+</table> 
+

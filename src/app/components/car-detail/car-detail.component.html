@@ -1,0 +1,21 @@
+ 
+ <div class="container" style="text-align:center; margin-top: 2%;">
+  <li class="list-group-item">Araç Detayı</li>
+<div style="margin-top: 3%;">
+<ul>
+  <li *ngFor="let image of carImages">
+      <img
+       src="https://localhost:44388/{{image.imagePath}}" alt="Kirala" style="width: 100%;">
+  </li>
+</ul>
+</div>
+
+<div>
+<ul class="list-group">
+  <li class="list-group-item">Araç No : {{car.carId}}</li>
+  <li class="list-group-item">Marka : {{car.brandName}}</li>
+  <li class="list-group-item">Günlük Kira : {{car.dailyPrice}}</li>
+</ul>
+
+</div>
+</div>
