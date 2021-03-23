@@ -13,7 +13,7 @@ import { CarService } from 'src/app/services/car.service';
 })
 export class CarComponent implements OnInit {
 
-  cars:Car[];
+  cars:Car[]=[];
   carImages:CarImage;
   dataLoaded=false;
   apiUrl = "https://localhost:44388/";
@@ -21,13 +21,36 @@ export class CarComponent implements OnInit {
   currentCarImage:CarImage;
 
 
+
   constructor(private carService:CarService,private carImageService:CarImageService,
     private activatedRoute:ActivatedRoute) { }
 
   ngOnInit(): void {
-   this.activatedRouteBrand();
-   this.activatedRouteColor();
-  
+    this.activatedRoute.params.subscribe(params => {
+      if(params["colorId"] && params["brandId"]){
+        this.getCarsByFilter(params["brandId"],params["colorId"]);
+      }
+      else if(params["brandId"]){
+        this.getCarsByBrand(params["brandId"]);
+      }
+      else if(params["colorId"]){
+        this.getCarsByColor(params["colorId"]);
+      }
+      else {
+        this.getCars();
+      }
+    });
+  }
+
+  getCarsByFilter(brandId:Number, colorId: Number) {
+    this.carService.getCarsByBrandAndColor(brandId,colorId).subscribe(response => {
+      this.cars = response.data,
+      this.dataLoaded = true
+      // if(this.cars.length == 0){
+      //   this.toastr.info('Arama sonuçunuza ait bir araç bulunmamaktadır.', 'Arama Sonucu');
+      // }
+    })
+    
   }
 
   getCars(){
@@ -48,33 +71,13 @@ export class CarComponent implements OnInit {
     this.carService.getCarsByColor(colorId).subscribe(response=>{
       this.cars = response.data;
       this.dataLoaded=true;
+      
     })
   }
 
-  activatedRouteBrand(){
-    this.activatedRoute.params.subscribe(params=>{
-      if(params["brandId"]){
-        this.getCarsByBrand(params["brandId"])
-      }else {
-        this.getCars();
-      }
-    })
-  }
-
-  activatedRouteColor(){
-    this.activatedRoute.params.subscribe(params=>{
-      if(params["colorId"]){
-        this.getCarsByColor(params["colorId"])
-      }else {
-        this.getCars();
-      }
-    })
-  }
-
+  
   getCarsImages(){
     this.carImageService.getCarImages()
-
-    
-  }
+   }
 
 }

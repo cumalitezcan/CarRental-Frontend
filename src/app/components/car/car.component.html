@@ -4,6 +4,16 @@
     <span class="visually-hidden">Loading...</span>
 </div>
 
+
+<div class="card mb-2">
+    <div class="card-header text-center">
+       <strong>Araç Listesi</strong>
+    </div>
+    <div class="card-body">
+
+        <app-car-filter></app-car-filter>
+   
+
 <table *ngIf="dataLoaded==true" class="table table-striped">
     <thead>
         <tr>
@@ -11,7 +21,6 @@
             <th>Marka</th>
             <th>Araç</th>
             <th>Renk</th>
-            <th>Açıklama</th>
             <th>Foto</th>
             <th>Detaylar</th>
         </tr>
@@ -23,9 +32,9 @@
             <td>{{car.brandName}}</td>
             <td>{{car.carName}}</td>
             <td>{{car.colorName}}</td>
-            <td>{{car.dailyPrice}}</td>
             <td><img *ngIf="car.imagePath!=null" src="{{apiUrl+car.imagePath}}" alt="{{car.carId}}" style="width: 100%;"></td>
-            <td><button routerLink="/car/details/{{car.carId}}" type="button" class="btn btn-primary">Detay</button></td> 
+            <td><button routerLink="/cars/details/{{car.carId}}" type="button" class="btn btn-primary">Detay</button></td> 
+            
         </tr>
     </tbody>
 </table> 

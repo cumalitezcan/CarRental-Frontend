@@ -1,7 +1,12 @@
  
  <div class="container" style="text-align:center; margin-top: 2%;">
   <li class="list-group-item">Araç Detayı</li>
+  <li class="list-group-item"><button type="button" class="btn btn-success">Kirala</button></li>
 <div style="margin-top: 3%;">
+ 
+<div>
+  <td></td> 
+</div>
 <ul>
   <li *ngFor="let image of carImages">
       <img
@@ -13,8 +18,9 @@
 <div>
 <ul class="list-group">
   <li class="list-group-item">Araç No : {{car.carId}}</li>
-  <li class="list-group-item">Marka : {{car.brandName}}</li>
   <li class="list-group-item">Günlük Kira : {{car.dailyPrice}}</li>
+  <li class="list-group-item">Haftalık Kira : {{car.dailyPrice |weeklyRent:6}}</li>
+
 </ul>
 
 </div>
