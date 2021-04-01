@@ -1,27 +1,94 @@
- 
- <div class="container" style="text-align:center; margin-top: 2%;">
-  <li class="list-group-item">Araç Detayı</li>
-  <li class="list-group-item"><button type="button" class="btn btn-success">Kirala</button></li>
-<div style="margin-top: 3%;">
- 
-<div>
-  <td></td> 
+<div *ngIf="dataLoaded == false" class="d-flex justify-content-center">
+  <div class="spinner-border text-success" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
 </div>
-<ul>
-  <li *ngFor="let image of carImages">
-      <img
-       src="https://localhost:44388/{{image.imagePath}}" alt="Kirala" style="width: 100%;">
-  </li>
-</ul>
-</div>
+<div *ngIf="dataLoaded == true" class="mx-auto">
+  <div class="card-header text-center">
+    <strong> {{ cars.brandName }} - {{ cars.modelYear }} </strong>
+  </div>
+  <div
+    id="carImageSlide"
+    class="carousel slide carousel-fade"
+    data-bs-ride="carousel"
+  >
+    <div
+      class="carousel-inner d-flex"
+      style="height: 50%; width: 75%; margin-left: 15%;"
+    >
+      <div
+        *ngFor="let image of carImages; index as i; first as firstImage"
+        class="carousel-item align-self-center"
+        [ngClass]="{ active: firstImage }"
+        style="height: 100%; width: 100%"
+      >
+        <img
+          src="{{ apiUrl }}{{ image.imagePath }}"
+          class=""
+          style="height: 100%; width: 100%"
+        />
+      </div>
 
-<div>
-<ul class="list-group">
-  <li class="list-group-item">Araç No : {{car.carId}}</li>
-  <li class="list-group-item">Günlük Kira : {{car.dailyPrice}}</li>
-  <li class="list-group-item">Haftalık Kira : {{car.dailyPrice |weeklyRent:6}}</li>
+      <button
+        class="carousel-control-prev"
+        type="button"
+        data-bs-target="#carImageSlide"
+        data-bs-slide="prev"
+      >
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button
+        class="carousel-control-next"
+        type="button"
+        data-bs-target="#carImageSlide"
+        data-bs-slide="next"
+      >
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
 
-</ul>
-
-</div>
+    <table class="table table-striped mt-2">
+      <tbody>
+        <tr>
+          <th scope="row">Marka</th>
+          <td>{{ cars.brandName }}</td>
+        </tr>
+        <tr>
+          <th scope="row">Model Yılı</th>
+          <td>{{ cars.modelYear }}</td>
+        </tr>
+        <tr>
+          <th scope="row">Renk</th>
+          <td>{{ cars.colorName }}</td>
+        </tr>
+        <tr>
+          <th scope="row">Fiyat</th>
+          <td>
+            {{
+              cars.dailyPrice | currency: "TRY":"symbol-narrow":"1.2-2"
+            }}/Gunluk
+          </td>
+        </tr>
+        <tr>
+          <th scope="row">Aciklama</th>
+          <td>{{ cars.descriptions }}</td>
+        </tr>
+      </tbody>
+    </table>
+    <div>
+      <div class="card-body d-grid gap-2 mx-auto">
+        <div *ngIf="cars.status == true" class="btn-group me-2">
+          <div style="margin: auto;">
+            <app-rental [car]="cars"></app-rental>
+            
+          </div>
+        </div>
+      </div>
+      <div class="d-grid gap-2 mb-2" *ngIf="cars.status == false">
+        <div class="alert alert-danger">Araç Şuan Kiralanamaz</div>
+      </div>
+    </div>
+  </div>
 </div>

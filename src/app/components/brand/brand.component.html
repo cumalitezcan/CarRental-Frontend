@@ -6,9 +6,8 @@
   <label for="filterText" class="form-label">Marka ara</label>
   <input type="text" [(ngModel)]="filterText"  class="form-control" id="filterText" placeholder="Marka ara">
 </div>
-<div *ngIf="filterText" class="alert alert-success">
-    {{filterText}}
-</div>
+
+<div *ngIf="filterText" class="alert alert-success">{{filterText}}</div>
 
 <ul *ngIf="dataLoaded==true" class="list-group" style="margin-top: 10%;margin-bottom: 10%;">   
     <li class="list-group-item active" aria-current="true" style="text-align: center;background-color: aqua;">BRANDS</li>

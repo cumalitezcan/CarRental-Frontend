@@ -1,9 +1,18 @@
 <div class="container">
     <app-navi></app-navi>
-        <div class="row row-cols-2">
-            <div class="col-md-2"><app-brand></app-brand></div>
-            <div class="col-md-8"><router-outlet></router-outlet></div>
-            <div class="col-md-2"><app-color></app-color></div>
+    <div class="row">
+      <div class="col-md-2">
+        <div class="mt-5">
+          <app-brand></app-brand>
         </div>
-</div>
-
+      </div>
+      <div class="col-md-8 mt-5">
+        <router-outlet></router-outlet>
+      </div>
+      <div class="col-md-2">
+        <div class="mt-5">
+          <app-color></app-color>
+        </div>
+      </div>
+    </div>
+  </div>
