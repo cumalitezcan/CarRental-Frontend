@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import {HttpClientModule} from '@angular/common/http';
+import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import {FormsModule,ReactiveFormsModule} from '@angular/forms';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
@@ -31,6 +31,8 @@ import { CarUpdateComponent } from './components/car/car-update/car-update.compo
 import { ColorListComponent } from './components/color/color-list/color-list.component';
 import { BrandListComponent } from './components/brand/brand-list/brand-list.component';
 import { CarListComponent } from './components/car/car-list/car-list.component';
+import { LoginComponent } from './components/login/login.component';
+import { AuthInterceptor } from './interceptors/auth.interceptor';
 
 
 @NgModule({
@@ -59,7 +61,8 @@ import { CarListComponent } from './components/car/car-list/car-list.component';
     CarUpdateComponent,
     ColorListComponent,
     BrandListComponent,
-    CarListComponent
+    CarListComponent,
+    LoginComponent
     
   ],
   imports: [
@@ -73,7 +76,9 @@ import { CarListComponent } from './components/car/car-list/car-list.component';
       positionClass:"toast-bottom-right"
     }),
   ],
-  providers: [],
+  providers: [{
+    provide:HTTP_INTERCEPTORS,useClass:AuthInterceptor,multi:true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

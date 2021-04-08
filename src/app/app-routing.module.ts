@@ -11,13 +11,15 @@ import { CarComponent } from './components/car/car.component';
 import { ColorAddComponent } from './components/color/color-add/color-add.component';
 import { ColorListComponent } from './components/color/color-list/color-list.component';
 import { ColorUpdateComponent } from './components/color/color-update/color-update.component';
+import { LoginComponent } from './components/login/login.component';
 import { PaymentComponent } from './components/payment/payment.component';
 import { RentalComponent } from './components/rental/rental.component';
+import { LoginGuard } from './guards/login.guard';
 
 const routes: Routes = [
   {path:"",pathMatch:"full", component:CarComponent},
   {path:"cars",component:CarComponent},
-  {path:"cars/add",component:CarAddComponent},
+  {path:"cars/add",component:CarAddComponent,canActivate:[LoginGuard]},
   {path:"brands/add",component:BrandAddComponent},
   {path:"colors/add",component:ColorAddComponent},
   {path:"cars/update/:carId",component:CarUpdateComponent},
@@ -31,7 +33,8 @@ const routes: Routes = [
   {path:"cars/details/:carId", component: CarDetailComponent},
   {path:"cars/filter/:brandId/:colorId",component:CarComponent},
   {path:"rental/:carId", component:RentalComponent},
-  {path:"payment/:rental", component:PaymentComponent}
+  {path:"payment/:rental", component:PaymentComponent},
+  {path:"login", component:LoginComponent}
 ];
 
 @NgModule({
