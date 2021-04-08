@@ -1,0 +1,26 @@
+<div class="content">
+    <div class="card">
+      <div class="card-header">Araba Listesi</div>
+      <div class="card-body">
+          <table class="table table-responsive table-bordered table-hover">
+              <thead>
+                  <tr>
+                      <th>Id</th>
+                      <th>Marka</th>
+                      <th>İsim</th>
+                      <th>Düzenle</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr *ngFor="let car of cars">
+                      <td>{{car.carId}}</td>
+                      <td>{{car.brandName}}</td>
+                      <td>{{car.carName}}</td>
+                      <td><a routerLink="/cars/update/{{car.carId}}" class="btn btn-warning">Düzenle</a></td>
+                  </tr>
+              </tbody>
+          </table>
+      </div>
+    </div>
+  </div>
+  

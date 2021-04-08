@@ -1,0 +1,51 @@
+<div class="content" >
+    <div class="col-md-12">
+        <div class="card">
+            <div class="alert alert-success" role="alert">
+                <div class="card-header"><h5 class="title"><h1>{{currentCar.id}} </h1>Id Numaralı Araç</h5> </div>
+              </div>
+          
+            <div class="card-body">
+                <form [formGroup]="carUpdateForm">
+                   
+                    <div class="mb-3">
+                        <label for="name">Güncellenecek Araba Adı</label>
+                        <div class="form-group">
+                            <input type="text" id="name" formControlName="name" class="form-control" placeholder="Yeni Araba Adı"/>
+                        </div>
+
+                    </div>
+                   
+                    <div class="mb-3">
+                        <label for="modelYear">Model Yılı</label>
+                        <div class="form-group">
+                            <input type="text" id="modelYear" formControlName="modelYear" class="form-control" placeholder="Yeni Model Yılı"/>
+                        </div>
+
+                    </div>
+                   
+                    <div class="mb-3">
+                        <label for="dailyPrice">Günlük Ücret</label>
+                        <div class="form-group">
+                            <input type="number" id="dailyPrice" formControlName="dailyPrice" class="form-control" placeholder="Yeni Günlük Ücret"/>
+                        </div>
+
+                    </div>
+                   
+                    <div class="mb-3">
+                        <label for="descriptions">Açıklama Bilgisi</label>
+                        <div class="form-group">
+                            <input type="text" id="descriptions" formControlName="descriptions" class="form-control" placeholder="Yeni Açıklama Bilgisi"/>
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+            <div class="card-footer">
+                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                    <button class="btn btn-fill btn-primary me-md-end" (click)="updateCar()"> Araba Güncelle</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>          

@@ -2,7 +2,7 @@ import { DatePipe } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { Car } from 'src/app/models/car';
+import { CarDto } from 'src/app/models/carDto';
 import { CustomerDto } from 'src/app/models/customerDto';
 import { RentalDto } from 'src/app/models/rentalDto';
 import { CustomerService } from 'src/app/services/customer.service';
@@ -18,7 +18,7 @@ export class RentalComponent implements OnInit {
   customerId: number;
   rentDate: Date;
   returnDate: Date;
-  @Input() car: Car;
+  @Input() car: CarDto;
   dataLoaded = false;
 
   minDate: string | any;

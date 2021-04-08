@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { Car } from 'src/app/models/car';
+import { CarDto } from 'src/app/models/carDto';
 import { CustomerDto } from 'src/app/models/customerDto';
 import { FakeCard } from 'src/app/models/fakeCard';
 import { RentalDto } from 'src/app/models/rentalDto';
@@ -17,7 +17,7 @@ import { RentalService } from 'src/app/services/rental.service';
 })
 export class PaymentComponent implements OnInit {
   rental: RentalDto;
-  cars: Car;
+  cars: CarDto;
   customer: CustomerDto;
   getCustomerId: number;
   amountOfPayment: number = 0;

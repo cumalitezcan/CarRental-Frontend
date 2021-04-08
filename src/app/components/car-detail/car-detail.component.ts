@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Car } from 'src/app/models/car';
+import { CarDto } from 'src/app/models/carDto';
 import { CarImage } from 'src/app/models/carImage';
 import { CarImageService } from 'src/app/services/car-image.service';
 import { CarService } from 'src/app/services/car.service';
@@ -13,7 +13,7 @@ import { CarService } from 'src/app/services/car.service';
 export class CarDetailComponent implements OnInit {
 
   carImages:CarImage[]=[];
-  cars:Car;
+  cars:CarDto;
   dataLoaded = false;
   apiUrl : string = "https://localhost:44388/";
 
