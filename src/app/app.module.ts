@@ -33,6 +33,8 @@ import { BrandListComponent } from './components/brand/brand-list/brand-list.com
 import { CarListComponent } from './components/car/car-list/car-list.component';
 import { LoginComponent } from './components/login/login.component';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
+import { UserComponent } from './components/user/user.component';
+import { RegisterComponent } from './components/register/register.component';
 
 
 @NgModule({
@@ -62,7 +64,9 @@ import { AuthInterceptor } from './interceptors/auth.interceptor';
     ColorListComponent,
     BrandListComponent,
     CarListComponent,
-    LoginComponent
+    LoginComponent,
+    UserComponent,
+    RegisterComponent
     
   ],
   imports: [
