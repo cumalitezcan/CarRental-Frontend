@@ -51,6 +51,7 @@
 
     <table class="table table-striped mt-2">
       <tbody>
+       
         <tr>
           <th scope="row">Marka</th>
           <td>{{ cars.brandName }}</td>
@@ -70,6 +71,10 @@
               cars.dailyPrice | currency: "TRY":"symbol-narrow":"1.2-2"
             }}/Gunluk
           </td>
+        </tr>
+        <tr>
+          <th scope="row">Findeks Puanı</th>
+          <td>{{ cars.findeksScore }}</td>
         </tr>
         <tr>
           <th scope="row">Aciklama</th>

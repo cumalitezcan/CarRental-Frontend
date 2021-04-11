@@ -9,6 +9,8 @@ export interface CarDto{
   descriptions:string;
   imagePath:string;
   modelYear:string;
+  findeksScore:number;
   status?:boolean
+  
   
 }

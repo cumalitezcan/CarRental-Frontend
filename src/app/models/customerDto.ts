@@ -6,5 +6,6 @@ export interface CustomerDto {
     lastName:string;
     email:string;
     status:boolean;
+    findeksScore:number;
 
   }
