@@ -1,6 +1,30 @@
-# Rent A Car
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.3.
+# ReCapProject : Car Rental System Angular
+CarRental ReCap projesinin Angular ile yapılan frontend tarafıdır.
+
+![rent-a-car-acmak](https://user-images.githubusercontent.com/34379535/114320977-4ba0fd80-9b21-11eb-9174-ebb53ee883db.jpg)
+
+:red_car: This repository includes the frontend of the car rental system. <br/>
+
+:computer: You can reach the Backend project here. :sunny: `https://github.com/cumalitezcan/ReCapProject` :sunny: 
+
+## :tada: Getting Started
+
+Click for the readme file of the backend of the car rental system :clipboard: [Backend Readme](https://github.com/cumalitezcan/ReCapProject/blob/master/README.md) :clipboard:
+
+#### Technologies
+- Angular
+- TypeScript
+- Bootstrap
+- Jquery
+
+#### Techniques
+- Pipe
+- Guard
+- Interceptor
+- JWT
+- Service
+
 
 ## Development server
 
