@@ -1,8 +1,8 @@
 
-# ReCapProject : Car Rental System Angular
+# Car Rental Project
 CarRental ReCap projesinin Angular ile yapılan frontend tarafıdır.
 
-![rent-a-car-acmak](https://user-images.githubusercontent.com/34379535/114320977-4ba0fd80-9b21-11eb-9174-ebb53ee883db.jpg)
+![ CarRental Project](https://github.com/cumalitezcan/Task1/blob/main/gifs/carrental.gif)
 
 :red_car: This repository includes the frontend of the car rental system. <br/>
 
@@ -24,7 +24,6 @@ Click for the readme file of the backend of the car rental system :clipboard: [B
 - Interceptor
 - JWT
 - Service
-
 
 ## Development server
 
